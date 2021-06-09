@@ -27,6 +27,8 @@
 </template>
 
 <script>
+import axios from 'axios'
+
 export default {
   data () {
     return {
@@ -80,14 +82,20 @@ export default {
         if (!valid) {
           return
         }
-        const { data: res } = await this.$http.post('login', this.loginForm)
+        // 登录请求
+        const { data: res } = await axios.post('login', this.loginForm)
         console.log(res)
         if (res.meta.status !== 200) {
-          console.log('登录失败')
+          this.$message.error('登录失败')
           return
         }
         console.log('登录成功')
-      })
+        this.$message.success('登录成功')
+        // 保存登录的token
+        window.sessionStorage.setItem('token', res.data.token)
+        // 跳转到home页面
+        await this.$router.push('/home')
+      }.bind(this))
     }
   }
 }
