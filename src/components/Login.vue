@@ -1,25 +1,25 @@
 <template>
-  <div class="login_container">
-    <div class="login_box">
+  <div class='login_container'>
+    <div class='login_box'>
       <!-- 头像区域 -->
-      <div class="avatar_box">
-        <img src="../assets/logo.png" alt="">
+      <div class='avatar_box'>
+        <img src='../assets/logo.png' alt=''>
       </div>
       <!-- 登录表单区域 -->
-      <el-form ref="loginFormRef" label-width="0px" class="login_form" :model="loginForm" :rules="loginFormRules"
-               rel="loginFormRef">
+      <el-form ref='loginFormRef' label-width='0px' class='login_form' :model='loginForm' :rules='loginFormRules'
+               rel='loginFormRef'>
         <!-- 用户名 -->
-        <el-form-item prop="username">
-          <el-input prefix-icon="iconfont icon-user" v-model="loginForm.username"></el-input>
+        <el-form-item prop='username'>
+          <el-input prefix-icon='iconfont icon-user' v-model='loginForm.username'></el-input>
         </el-form-item>
         <!-- 密码 -->
-        <el-form-item prop="password">
-          <el-input prefix-icon="iconfont icon-3702mima" type="password" v-model="loginForm.password"></el-input>
+        <el-form-item prop='password'>
+          <el-input prefix-icon='iconfont icon-3702mima' type='password' v-model='loginForm.password'></el-input>
         </el-form-item>
         <!-- 按钮区域 -->
-        <el-form-item class="btns">
-          <el-button type="primary" v-on:click="login">登录</el-button>
-          <el-button type="info" v-on:click="resetLoginForm">重置</el-button>
+        <el-form-item class='btns'>
+          <el-button type='primary' v-on:click='login'>登录</el-button>
+          <el-button type='info' v-on:click='resetLoginForm'>重置</el-button>
         </el-form-item>
       </el-form>
     </div>
@@ -77,7 +77,7 @@ export default {
     },
     // 登录
     login () {
-      this.$refs.loginFormRef.validate(async function (valid) {
+      this.$refs.loginFormRef.validate(async function(valid) {
         console.log(valid)
         if (!valid) {
           return
